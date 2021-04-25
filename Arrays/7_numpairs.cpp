@@ -1,3 +1,4 @@
+//https://practice.geeksforgeeks.org/problems/number-of-pairs-1587115620/1
 #include<iostream>
 #include<cmath>
 #include<algorithm>
