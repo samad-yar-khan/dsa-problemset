@@ -4,66 +4,68 @@
 #define ll long long
 using namespace std;
 
-long long int merge_sorted(long long arr1[] , long long arr2[] , long long s1 , long long s2 , long long arr3[] ){
-
-    ll i = 0 , j = 0 , k = 0 ;
-    ll array_size = s1+s2;
-    ll count=0;
-    while(i < s1 && j < s2){
-
-        if(arr1[i] <= arr2[j]){
-            arr3[k] = arr1[i];
-            i++;
-            k++;
-        }else{
-            arr3[k] = arr2[j];
-        
-            j++;
-            k++;
+long long merge(long long  arr[], long  long l, long long m, long long r)
+    {
+         // Your code here
+        long long size = r-l+1;
+        long long*arr2 = new long long[size]{0};
+        long long ans = 0  ;
+        long long i{0} , j{0} , k{0};
+        i = l ;
+        k = 0 ;
+        j = m+1;
+        bool fc{false};
+        while( i <= m && j <=r){
             
-            count += (s1-i);
+            if(arr[i] <= arr[j]){
+                arr2[k++] = arr[i++];
+               
+            }else{
+                arr2[k++] = arr[j++];
+                ans += m-i+1;
+            }
+            
         }
 
+        // if(i <= m){
+        //     ans+= ((m-i)*(r-m));
+        // }
+        
+        while(i <= m){
+            arr2[k++] = arr[i++];
+        }
+        while(j<=r){
+            arr2[k++] = arr[j++];
+        }
+        
+        //now we have to copy back
+        long long it1{l} ,it2{0};
+        
+        while(it2 < size){
+            arr[it1++] = arr2[it2++];
+        }
+        
+        delete []arr2;
+        return ans ; 
     }
 
-
-    while(i<s1){
-         arr3[k] = arr1[i];
-            i++;
-            k++;
-    }
-    while(j<s2){
-        arr3[k] = arr2[j];
-        j++;
-        k++;
-    }
-
-    return count;
-
-}
-
-
-long long int merge_sort_method (long long arr[] , long long N){
-
-    if( N  == 1 ){
-        return 0;
+    long long  mergeSort(long long arr[], long long l, long long  r)
+    {
+        //code here
+        if(l>=r){
+            return 0; //size 0 ,1
+        }
+        
+        //ih
+        long long mid = (l+r)/2;
+        long long a1 = mergeSort(arr,l , mid );
+        long long a2 = mergeSort(arr , mid+1,r);
+        
+        //is
+        long long ma = merge(arr , l , mid , r);//merge and copy
+        return a1+a2 + ma;
     }
 
-    //ih
-    long long size1 = N/2;
-    long long size2 = N - size1;
-
-    long long ans1 = merge_sort_method(arr,size1);
-    long long ans2 = merge_sort_method(arr+size1, size2);
-
-    //is
-    long long int* arr3 = new long long int[N];
-   int my_ans = merge_sorted(arr,arr+size1 ,size1,size2, arr3 );
-
-   delete [] arr3;
-   return my_ans + ans1 + ans2;
-
-}
 
  long long int inversionCount(long long arr[], long long N)
 {
@@ -74,7 +76,7 @@ long long int merge_sort_method (long long arr[] , long long N){
         arr2[i]=  arr[i];
     }
     
-    long long count = merge_sort_method(arr , N);
+    long long count = mergeSort(arr2 , 0 , N-1);
     
 
     delete [] arr2;
