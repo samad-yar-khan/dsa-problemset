@@ -7,7 +7,7 @@ using  namespace std;
 class student {
 
     public : 
-
+        static int total_studnets;
         int age;
         char* name ;
         const int rollNumber;
@@ -24,21 +24,25 @@ class student {
     // }
 
     //parametrirsed construtor
+    //initiilaiser list
     student(int age , char* name , int rollnumber) : rollNumber(rollNumber){
 
         this->age = age ;
         this->name = new char[strlen(name) + 1];//now this is our own array
         strcpy(this->name , name);
 
+        total_studnets++;
+
     }
+
     //copy construtor
+    //initialiser list
     student(student const & s) : rollNumber(s.rollNumber){
-     
         this->age = s.age ;
         this->name = new char[strlen(s.name) + 1];//now this is our own array
         strcpy(this->name , s.name);
 
-
+        total_studnets ++;
     }
 
 
@@ -51,7 +55,7 @@ class student {
 
     //getters
 
-    void getDetails (){
+    void getDetails () const {//used const for gettes so all constants can be used her
         cout<<"Name : "<<(*this).name<<"\n";
         cout<<"age : "<<(*this).age<<"\n";
         cout<<"marks : "<<(*this).marks<<"\n";
@@ -67,6 +71,9 @@ class student {
 
 
 };
+//static memner ars initilaised outide and belong to the whole class
+int student::total_studnets = 0 ;//initise thi outside the class
+
 
 
 int main(){
@@ -87,6 +94,9 @@ int main(){
     // cout<<(*s2).name<<"\n";
 
     student S2(S1);
+
+    student s3=S1;
+
     S2.getDetails();
     strcpy(S2.name , "samerr");
 
@@ -100,6 +110,8 @@ int main(){
 
     // (*s2).set_marks(200);
     // (*s2).getDetails();
+
+    cout<<"total students : "<<student::total_studnets<<"\n";
 
 
     
