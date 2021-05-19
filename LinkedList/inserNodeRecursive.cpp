@@ -1,3 +1,26 @@
+#include<iostream>
+
+using namespace std;
+
+
+class node{
+
+    public:
+        int data ;
+        node* next;
+
+    node(){
+        this->data = 0 ;
+        this->next = NULL;
+    }
+
+    node(int data){
+        this->data = data ;
+        this->next = NULL;
+    }
+
+};
+
 
 //delete a node in linked list 
 
