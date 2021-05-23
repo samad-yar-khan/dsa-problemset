@@ -1,106 +1,103 @@
-#include<iostream>
-
+#include <iostream>
 using namespace std;
 
-class node{
+class Node
+{
+public:
+	int data;
+	Node *next;
+	Node(int data)
+	{
+		this->data = data;
+		this->next = NULL;
+	}
 
-    public:
-        int data ;
-        node* next;
+    ~Node(){
 
-    node(){
-        this->data = 0 ;
-        this->next = NULL;
+        delete(this->next);
+
     }
-
-    node(int data){
-        this->data = data ;
-        this->next = NULL;
-    }
-
 };
 
 
-void printLL(node*head){
+Node *takeinput()
+{
+	int data;
+	cin >> data;
+	Node *head = NULL, *tail = NULL;
+	while (data != -1)
+	{
+		Node *newNode = new Node(data);
+		if (head == NULL)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail->next = newNode;
+			tail = newNode;
+		}
+		cin >> data;
+	}
+	return head;
+}
 
-    node*HEAD = head;
+void print(Node *head)
+{
+	Node *temp = head;
+	while (temp != NULL)
+	{
+		cout << temp->data << " ";
+		temp = temp->next;
+	}
+	cout << endl;
+}
 
-    while(HEAD!=NULL){
-        cout<<HEAD->data<<" , ";
-        HEAD = HEAD->next;
-    }
+
+
+
+//when overall operator outisde class  we need to pass both params 
+//output stream
+ostream& operator<<(ostream &os , Node* head){
+
+    print(head);
+    return os;
 
 }
 
-void deleteALL(node*head){
+//input stream
+istream& operator>>(istream &is , Node*&head){//referance to head * because we need to save new value of head after input 
+
+    head = takeinput();
+    return is;
+
+}
+
+void deleteALL(Node*head){
 
     while(head!=NULL){
 
-        node*temp = head->next;
+        Node*temp = head->next;
         delete head;
         head = temp;
 
     }
 }
 
-int length(node*head){
-
-    node*HEAD = head;
-    
-    int len{0};
-    while(HEAD!=NULL){
-
-        len++;
-        HEAD=HEAD->next;
-
-    }
-
-}
-
-node *input(){
-
-    int inp{0};
-    cin>>inp;
-
-    node* head = NULL ;
-    node* tail =NULL; 
-
-    while(inp != -1){
-
-        // create a nw node
-        node*temp = new  node(inp);
-
-        //if heads null we initalise the ll
-        if(head == NULL){
-            head = temp;
-            tail = temp;
-        }else{
-            //lls already initialised
-
-            tail->next = temp;
-            tail=tail->next;
-
-        }
-
-        cin>>inp;
-    }
-
-    return head;
-
-}
 
 
 
-int main(){
+// int main(){
 
   
-    //node ptr to store the adress of head
-    node*head = input();
+//     //Node ptr to store the adress of head
+//     Node*head = input();
 
     
 
-    printLL(head);
+//     printLL(head);
 
-    cout<<"\nLength of LL : "<<length(head)<<"\n";
+//     cout<<"\nLength of LL : "<<length(head)<<"\n";
 
-}
+// }
