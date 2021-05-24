@@ -84,6 +84,49 @@ pair<Node* , Node*> reverseRecOptimised(Node* head){
 
 }
 
+//now we dont actually need to return the tail and pair becasue at each call our next  node will be the tail of the reversed ll
+//so we already have the tail
+Node* reverseRecursiveOptiised2(Node*head){
+
+    //edge case
+    if(head == NULL){
+        return head;
+    }
+
+    //bc//only ne elemnt in ll no need to reversr
+    if(head->next==NULL)
+    {
+        return head;
+    }
+
+    //ih
+
+    //we will let recusion reverse the smaller LL  and return us the head of thee smaller LL
+    //now we detatch or elemnt from 
+    //we have HEAD-1->2->3->4->5->NULL
+
+    Node* myNode = head;   
+    Node* smallHead = head->next; //this small head pointer will have the ptr to our next node which will be the tail to our reversed LL , so no need to find tail again with the while loop
+
+    Node* newHead = reverseRecursive(smallHead);
+    //so new heads will have reverse ll 5->4->3->2 
+    //but our 1 still pont to 2
+    //myNode->1->2<-3<-4<-5-<newHead
+    //we just need to make 2 point to 1
+    //is
+    Node*temp = newHead ;
+    
+    Node*tailOfReversed = myNode->next;
+    tailOfReversed->next = myNode;
+    myNode->next = NULL;//now this vecoomes tail
+
+    return newHead;
+
+}
+
+
+
+
 
 
 
@@ -92,6 +135,8 @@ int main(){
     Node*head;
     cin>>head;
     cout<<head;
-    pair<Node*,Node*> ans = reverseRecOptimised(head);
-    cout<<ans.first;
+    // pair<Node*,Node*> ans = reverseRecOptimised(head);
+    // cout<<ans.first;
+    head = reverseRecursiveOptiised2(head);
+    cout<<head;
 }
