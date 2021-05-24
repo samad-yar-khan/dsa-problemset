@@ -124,12 +124,6 @@ Node* reverseRecursiveOptiised2(Node*head){
 
 }
 
-
-
-
-
-
-
 int main(){
 
     Node*head;
