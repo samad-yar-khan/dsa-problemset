@@ -36,16 +36,12 @@ Node* sortedMerge(Node* head1, Node* head2)
 
     }
 
-    while(h1!=NULL){
+    if(h1!=NULL){
          tail->next = h1;
-        h1=h1->next;
-        tail = tail->next;
     }
 
-    while(h2!=NULL){
-         tail->next = h2;
-        h2=h2->next;
-        tail = tail->next;
+    if(h2!=NULL){
+        tail->next = h2;
     }
 
     return head;
