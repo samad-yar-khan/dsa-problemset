@@ -9,12 +9,14 @@ Node* rearrangeEvenOdd(Node *head){
     Node*oh{NULL};
     Node*ot{NULL};
 
+    int index = 1;
+
     Node* temp = head;
 
     while(temp != NULL){
         
-        int val = temp->data;
-        bool isEven = (val%2 == 0);
+       
+        bool isEven = (index%2 == 0);
 
         if(isEven){
             //add to my even ll
@@ -43,6 +45,8 @@ Node* rearrangeEvenOdd(Node *head){
                 ot->next=NULL;
             }
         }
+
+        index++;
    
     }
     
