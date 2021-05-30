@@ -1,4 +1,4 @@
-#include "Stack.cpp"
+#include "StackLL.cpp"
 
 int  main(){
 
@@ -7,7 +7,7 @@ int  main(){
     for(int i = 0 ; i < 9 ; i++){
 
         s.push(i);
-        cout<<"\nsize:"<<s.size();
+        cout<<"\nsize:"<<s.getSize();
     }
 
     for(int i = 0 ; i < 9 ; i++){
