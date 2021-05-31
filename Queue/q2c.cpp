@@ -1,4 +1,4 @@
-#include "dynamicQueue.cpp"
+#include "dynamicQueueLL.cpp"
 
 int main(){
 
@@ -32,7 +32,7 @@ int main(){
 
     for(int i = 0 ; i <s-4 ; i++){
        
-       cout<<q.deque()<<"\n";
+       cout<<"DEQUE : "<<q.deque()<<"\n";
     }
 
      for(int i = 0 ; i < 8 ; i++){
