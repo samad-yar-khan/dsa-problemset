@@ -39,7 +39,7 @@ int main(){
         q.enque(i);
     }
 
-s =q.getSize();
+    s =q.getSize();
     for(int i = 0 ; i <s ; i++){
        
        cout<<q.deque()<<"\n";
