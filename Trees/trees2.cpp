@@ -65,10 +65,10 @@ void printTree(TreeNode<int> * root){
     }
 }
 
-int main(){
+// int main(){
 
-    TreeNode<int> * root = input();
-    printTree(root);
+//     TreeNode<int> * root = input();
+//     printTree(root);
 
-    delete root;
-}
+//     delete root;
+// }
