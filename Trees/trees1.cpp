@@ -2,7 +2,7 @@
 using namespace std;
 #include "TreeNode.h"
 
-
+//input in dfs manner
 TreeNode<int> * input()
 {
 
@@ -25,6 +25,7 @@ TreeNode<int> * input()
 
 }
 
+//output iin dfs manner
 void printTree(TreeNode<int> * root){
     if(root == NULL){
         return;
