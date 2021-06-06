@@ -79,8 +79,7 @@ using namespace std;
 
        for(int i{0} ; i < n ; i++){
             cout<<arr[i]<<" ";
-        }   
-        
+        }           
 
         delete [] arr;
 
