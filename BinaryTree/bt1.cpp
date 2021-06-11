@@ -130,15 +130,15 @@ BinaryTreeNode<int> * takeInputLevelwise(){
 }
 
 
-int main(){
+// int main(){
 
-    BinaryTreeNode<int> * root = takeInputLevelwise();
+//     BinaryTreeNode<int> * root = takeInputLevelwise();
 
-    printLevelwise(root);
+//     printLevelwise(root);
 
 
-    delete root ;
-}
+//     delete root ;
+// }
 
 
 
