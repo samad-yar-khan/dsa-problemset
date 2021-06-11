@@ -25,7 +25,6 @@ void replaceWithDepthValue(TreeNode<int>* root) {
     if(root == NULL){
         return ;
     }
-    
     queue<TreeNode<int>* > pendingNode ;
     root->data = 0;
     pendingNode.push(root);
@@ -42,10 +41,7 @@ void replaceWithDepthValue(TreeNode<int>* root) {
         for(int i = 0 ; i < top->children.size() ; i++){
             
             top->children[i]->data = top->data+1;
-            pendingNode.push(top->children[i]);
-            
+            pendingNode.push(top->children[i]);       
         }
-        
     }
-    
 }
