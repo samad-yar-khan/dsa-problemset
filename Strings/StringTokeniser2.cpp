@@ -47,7 +47,7 @@ char* myStrtok(char* str , char delim){
 //
 
 int main(){
-     char s[100]  = "Hey whats up !";
+     char s[100]  = "Hey what up !";
     char delim =  ' ';
     vector <char*> subs;
     char *ptr = myStrtok(s,' ');
