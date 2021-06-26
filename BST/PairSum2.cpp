@@ -23,6 +23,7 @@ Sample Output 1:
 
 the major part is that we do this in O(n) time and O(log(n)) space
 
+https://practice.geeksforgeeks.org/problems/find-a-pair-with-given-target-in-bst/1#
 */
 
 
