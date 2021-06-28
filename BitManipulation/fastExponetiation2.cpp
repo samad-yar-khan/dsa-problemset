@@ -30,8 +30,8 @@ using namespace std;
                 answer *=  number;
             }
             
-            number*=number;
-            power = power>>1;
+            number*=number; //square 
+            power = power>>1; //right shift power
             
         }
         
