@@ -1,3 +1,4 @@
+//https://practice.geeksforgeeks.org/problems/copy-set-bits-in-range0623/
 #include<iostream>
 using namespace std;
 #include<stack>
@@ -21,32 +22,29 @@ void showBits(int a){
     cout<<"\n";
 }
 
- int setSetBit(int x, int y, int l, int r){
-        // code here
-        l--;
-        r--;
-        if(r-l == 32){
-            return x|y;
-        }
-
-        int ones = ~0;
-        int leftMask = ones<<(r+1);
-        int rightMask = (1<<l) - 1;
-        int mask = (leftMask|rightMask);
-        showBits(mask);
-        int revMask = ~mask;
+int setSetBit(int x, int y, int l, int r){
 
 
-        int mask2 = revMask&y;
-    
-        int ans = mask2|x;
-        return ans;
-        // 100000000 
-        // 1000000000 
-        
+    l--;r--; //indixes
+    if(r-l+1 == 32){
+        return (x|y);
     }
+        //now we have to create a mask o length r-l+1 and shift it  l indice sy the left
+    int mask= (1<<(r-l+1))  - 1; // 2^(r-l+1) - 1 // 11111 r-l+1 ttimes
+        // no left /shift this mask
+    mask = mask << (l);
+        
+    int maskWithSetBits = y&mask;
+    int xWithSetBits= x|maskWithSetBits;
+    return xWithSetBits;
+       
+        
+}
 
+        //15 11111111
+        //2
+        //
     int main(){
-        cout<<setSetBit(44 , 3 , 2,5);
+        
      
     }
