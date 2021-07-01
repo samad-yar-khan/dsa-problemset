@@ -6,6 +6,8 @@
 #define ll long long
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/special-matrix4201/1#
+
    int findWays (int last_row, int last_col, vector<vector<int>> &maze ,  vector<vector<int>> &numPaths, int curr_row , int curr_col){
         
         //bc
