@@ -11,22 +11,17 @@ ll exp(ll m , ll n){    //m^n
     ll answer = 1;
 
     while( power > 0){
-
         if((power & 1 ) > 0){
             answer *= number ;
             answer%=modVal;
         } 
-
         //square the number 
         number*=number;
         number%=modVal;
         //right shift power
         power = power>>1;
     }
-
     return answer;
-
-
 }
 
 int main(){

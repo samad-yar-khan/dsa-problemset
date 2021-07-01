@@ -24,15 +24,11 @@ using namespace std;
         double answer = 1 ;
         
         while( power > 0){
-                
-            if((power&1) > 0)
-            {
+            if((power&1) > 0){
                 answer *=  number;
             }
-            
             number*=number; //square 
-            power = power>>1; //right shift power
-            
+            power = power>>1; //right shift power  
         }
         
         //for negative power ans will be 1/ans

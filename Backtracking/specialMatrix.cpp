@@ -2,84 +2,54 @@
 #include<iostream>
 #include<cmath>
 #include<vector>
+#define modVal 1000000007
 #define ll long long
 using namespace std;
 
-    int findWays (int n, int m, int**mat , int i , int j){
+   int findWays (int last_row, int last_col, vector<vector<int>> &maze ,  vector<vector<int>> &numPaths, int curr_row , int curr_col){
+        
         //bc
-        if(i == n && j == m ){
-            return 1;
+        // cout<<curr_row<<" "<<curr_col<<'\n';
+        if(last_col == curr_col && last_row == curr_row && maze[curr_row][curr_col] == 1 ){
+            return 1; //one path found
         }
         //edge case
-        if(i >n || j >m){
+        if(curr_col > last_col || curr_row > last_row){
+            return 0; //no path
+        }
+        if(maze.at(curr_row).at(curr_col) == 0){
             return 0;
         }
-        //is
-        if(mat[i][j] == 1){
-            return 0;
+
+        //memoization case
+        if(numPaths[curr_row][curr_col] != -1){
+            return numPaths.at(curr_row).at(curr_col);
         }
-        
+
         //ih
-        int r = 0;
-        int l = 0;
+        int rightPath = findWays(last_row , last_col , maze , numPaths , curr_row  , curr_col +1 )%modVal;
+        int downPath = findWays(last_row , last_col , maze , numPaths , curr_row +1  , curr_col  )%modVal;
 
-        if(j < m )
-        {
-             r =  findWays (n,  m, mat ,  i ,  j+1);
-        }
+        //is 
+        numPaths.at(curr_row).at(curr_col) = (rightPath  + downPath)%modVal ;
+        return numPaths.at(curr_row).at(curr_col);
 
-        if( i < n){
-               l = findWays (n,  m, mat ,  i+1 ,  j);
-        }
-
-     
-        
-        return  r + l;
-        
-        
     }
     
 	int FindWays(int n, int m, vector<vector<int>>blocked_cells ){
 	    // Code here
-	       
-	int ** mat = new int*[n];
-	for(int i = 0 ;i < n ; i++){
-	        
-	       mat[i] = new int[m];
-	       for(int j = 0 ; j < m ; j++){
-	           mat[i][j] = 1;
-	       }
-	    
-	}
-	
-	for(int i = 0 ;i < blocked_cells.size(); i++){
-	    int a = blocked_cells[i][0] - 1;
-	     int b = blocked_cells[i][1] - 1;
-	     
-	     mat[a][b] = 0;
-	}
-	
-	
-		for(int i = 0 ;i < n ; i++){
-	        
-	      
-	       for(int j = 0 ; j < m ; j++){
-	           cout<<mat[i][j];
-	       }
-	       cout<<"\n";
-	    
-	}
-	    
-	   int ans = findWays(n-1,m-1,mat,0,0);
-	   for(int i = 0 ;i < n ; i++){
-	        
-	       delete [] mat[i];
-	     
-	    }
-	    
-	    delete [] mat;
-	    return ans;
-	    
+        vector<vector<int>> maze(n , vector<int>(m , 1)) ; // we create  vector with n elements each being a vector of int
+
+        //make the maze
+        for(long long i = 0 ; i < blocked_cells.size() ; i++){
+            maze.at(blocked_cells[i][0]-1).at(blocked_cells[i][1]-1) = 0;
+        }   
+
+        //now we need an answer matrix to save a our no of paths for each cell
+        vector<vector<int>> numPaths(n , vector<int>(m , -1)) ;
+
+        int ans = findWays(n-1 , m-1 , maze , numPaths , 0 , 0);
+        return ans;
 	    
 	}
 
@@ -93,7 +63,7 @@ using namespace std;
             for(int j = 0 ; j < 2 ; j++){
                 int a = 0 ;
                 cin>>a;
-                vec[i].push_back(a);
+                vec.at(i).push_back(a);
             }
         }
 
