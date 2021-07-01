@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//find all permutation of a string using backkstarickking
 void permute(char* input , int index){
 
     //bc
