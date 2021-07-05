@@ -3,6 +3,8 @@
 #include<vector>
 using namespace std;
 
+//https://practice.geeksforgeeks.org/problems/generate-all-possible-parentheses/1
+
 void helper(int leftBrackets , int rightBrackets , string &s  , vector<string>&vec ,int n , int index ){
 
     //base case
