@@ -7,44 +7,40 @@ using namespace std;
 
 
 /*
-Subarray with 0 sum 
-Easy Accuracy: 49.91% Submissions: 49547 Points: 2
-Given an array of positive and negative numbers. Find if there is a subarray (of size at-least one) with 0 sum.
+Zero Sum Subarrays 
+Medium Accuracy: 50.41% Submissions: 18200 Points: 4
+You are given an array arr[] of size n. Find the total count of sub-arrays having their sum equal to 0.
+
 
 Example 1:
 
 Input:
-5
-4 2 -3 1 6
+n = 6
+arr[] = {0,0,5,5,0,0}
+Output: 6
+Explanation: The 6 subarrays are 
+[0], [0], [0], [0], [0,0], and [0,0].
 
-Output: 
-Yes
-
-Explanation: 
-2, -3, 1 is the subarray 
-with sum 0.
 Example 2:
 
 Input:
-5
-4 2 0 1 6
+n = 10
+arr[] = {6,-1,-3,4,-2,2,4,6,-12,-7}
+Output: 4
+Explanation: The 4 subarrays are [-1 -3 4]
+[-2 2], [2 4 6 -12], and [-1 -3 4 -2 2]
 
-Output: 
-Yes
-
-Explanation: 
-0 is one of the element 
-in the array so there exist a 
-subarray with sum 0.
 Your Task:
-You only need to complete the function subArrayExists() that takes array and n as parameters and returns true or false depending upon whether there is a subarray present with 0-sum or not. Printing will be taken care by the drivers code.
+You don't need to read input or print anything. Complete the function findSubarray() that takes the array arr and its size n as input parameters and returns the total number of sub-arrays with 0 sum. 
+ 
 
-Expected Time Complexity: O(n).
-Expected Auxiliary Space: O(n).
+Expected Time Complexity : O(n)
+Expected Auxilliary Space : O(n)
+ 
 
-Constraints:
-1 <= n <= 104
--105 <= a[i] <= 105
+Constraints:    
+1<= n <= 107
+-1010 <= arri <= 1010
 */
     //Function to count subarrays with sum equal to 0.
     ll findSubarray(vector<ll> arr, int n ) {
