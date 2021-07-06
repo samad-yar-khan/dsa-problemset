@@ -282,6 +282,7 @@ class MaxPriorityQueue {
                 myIndex=swapIndex;
                 leftChildIndex = 2*myIndex+1;
                 rightChildIndex = 2*myIndex+2;
+                
 
             }else{
                 break;
