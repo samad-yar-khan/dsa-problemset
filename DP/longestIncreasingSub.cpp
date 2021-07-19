@@ -68,6 +68,27 @@ int lis_dp(int n, int a[]){
 }
 
 //dp nlog(n)
+//the logic here is that , instead of finding te lis , we make the lis optimally while treversing
+//Using -  DP and binary Seach
+//we wil insert the first elemnt in the array 
+//no each time we insert an elemnt we check conditons
+//1-> if  our elents is larger than the largest elemnt i.e. the last inserted eelment in the vector
+//2-> if oyur elemnt is sssmaller thaat means we cant put it at thhe end , so we in the array and look for th elemnt which is just larger than our elemnt (lower_bound) and swp that elemnt with our
+//what this does is that it gives us room to make a lis optimally
+//ex 4 2 3 
+/*
+our vector has 4 at i = 0 
+i =1 
+we see 2 < 4 , so we cant append 2 , we find netx largest elemnt to 2 in this array and replace it with two
+next larget elemet ie lower bound is 4  , swap
+vec -> [4] becomes -> vec->[2]
+i = 2
+3 > 2
+apppend three and we get
+vec->[2,3]
+and this is the lis 
+so our step of f=idning lower bound and replacing makes room for smaller elemts to be adde din the lis which can be missed if w dont do so
+*/
 
 int lis_dp2(int n, int arr[]){
     vector<int> vec;//will store our li
