@@ -167,6 +167,7 @@ long long maximumAmount_memo(int arr[], int n)
 }
 
 //dp
+//similiar to the beerus and whiz thingg
    long long maximumAmount(int arr[], int n) 
 {
    
