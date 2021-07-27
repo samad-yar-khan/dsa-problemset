@@ -1,6 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+Go through the node in dfs fashion adn if
+you found the source throuh your path
+hen print your node
+*/
+
 bool DFS_path(int**edges , int V , int v1 , int v2 , bool* visited){
 
     visited[v1] = true;
@@ -67,7 +73,6 @@ int main(){
         delete [] edges[i];
     }
     delete [] edges;
-
 
     return 0;
 }
