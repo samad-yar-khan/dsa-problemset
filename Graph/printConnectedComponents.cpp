@@ -64,7 +64,6 @@ int main(){
             edges[i][j] = 0;
         }
     }
-
     for(int i = 0 ; i < E ; i++){
         int x = 0 , y = 0 ;
         cin>>x>>y;
