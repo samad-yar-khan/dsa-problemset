@@ -2,8 +2,7 @@
 #include <vector>
 #include<cmath>
 using namespace std;
-#include<iostream>
-using namespace std;
+
 void printGrid (int grid[][9]) 
     {
         // Your code here 
@@ -92,18 +91,36 @@ bool sudokuSolver(int grid[][9] , int row , int col ){
         return sudokuSolver(grid , 0 , 0);
     }
 
-	int main(){
-		int n = 0 ;
-		cin>>n;
-		int grid[9][9];
+	// int main(){
+	// 	int n = 0 ;
+	// 	cin>>n;
+	// 	int grid[9][9];
 
-		for(int i = 0 ; i  < 9 ;  i++){
-			for(int j = 0 ; j < 9 ; j++){
-				cin>>grid[i][j];
-			}
-		}
+	// 	for(int i = 0 ; i  < 9 ;  i++){
+	// 		for(int j = 0 ; j < 9 ; j++){
+	// 			cin>>grid[i][j];
+	// 		}
+	// 	}
 
-		SolveSudoku(grid);  
-		return 0;
-	}
-    //Function to print grids of the Sudoku.
+	// 	SolveSudoku(grid);  
+	// 	return 0;
+	// }
+    // //Function to print grids of the Sudoku.
+
+int main(){
+    int grid[9][9] = {
+        {0 , 9 , 1 , 0 , 0, 0, 5,0 , 0  },
+        {0 , 0 , 0 , 1 , 6, 0, 0,9 , 2  },
+        {3 , 0 , 0 , 0 , 0, 9, 1,0 , 0  },
+        {0 , 0 , 0 , 0 , 1, 0, 0,0 , 7  },
+        {4 , 8 , 5 , 0 , 0, 0, 9,3 , 1  },
+        {1 , 0 , 0 , 0 , 8, 0, 0,0 , 0  },
+        {0 , 0 , 9 , 4 , 0, 0, 0,0 , 8  },
+        {6 , 3 , 0 , 0 , 5, 8, 0,0 , 0  },
+        {0 , 0 , 8 , 0 , 0, 0, 6,4 , 0  }
+    };
+    SolveSudoku(grid);
+    printGrid(grid);
+
+
+}

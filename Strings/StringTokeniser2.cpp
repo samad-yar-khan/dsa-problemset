@@ -47,17 +47,21 @@ char* myStrtok(char* str , char delim){
 //
 
 int main(){
-     char s[100]  = "Hey what up !";
-    char delim =  ' ';
-    vector <char*> subs;
-    char *ptr = myStrtok(s,' ');
+//      char s[100]  = "Hey what up !";
+//     char delim =  ' ';
+//     vector <char*> subs;
+//     char *ptr = myStrtok(s,' ');
    
-   //strtok stores  the left over string in its own static storage 
-    while(ptr != NULL){
+//    //strtok stores  the left over string in its own static storage 
+//     while(ptr != NULL){
 
-        cout<<ptr<<"\n";
-        ptr = myStrtok(NULL , ' ');
+//         cout<<ptr<<"\n";
+//         ptr = myStrtok(NULL , ' ');
        
-    }
+//     }
+
+    string s = {"samad,yar,,khan"};
+    int i = 0 ; 
+    
 
 }
