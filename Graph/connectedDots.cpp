@@ -169,7 +169,6 @@ bool findCycle(vector<vector<char>> &board , int n , int m , int i , int j ,vect
             }
         }
     }
-    
     visited[i][j] = -1;
     return false;
     
