@@ -51,7 +51,7 @@ int main(){
        cout<<solve(n , 0 , dp)<<"\n";
        for(int i = 0 ; i < n ; i++){
          delete []   dp[i] ;
-       }
+       } 
        delete [] dp;
     }
 }
