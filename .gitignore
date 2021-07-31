@@ -1,3 +1,6 @@
 *.exe
 *tempCodeRunneerFile.cpp
-.vscode
+*.vscode
+*.json
+
+
