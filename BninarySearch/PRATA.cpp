@@ -1,6 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 //https://www.spoj.com/submit/PRATA/
+/*
+question says that we have to find the minimum time req ro make paratas 
+so we start with a case where we see how many pratas we can make with teh stipulated time , given the cooks ranks , so min  time = 0 , no prata made by anyone
+max time = all paratas made by slowest cook = time -> (p(p+1)/2)*Rank
+*/
+
+
 int makePrata(int *cooks , int n ,int time ){
 
     int totalPrata= 0;
