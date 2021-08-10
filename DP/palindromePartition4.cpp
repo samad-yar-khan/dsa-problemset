@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+// https://leetcode.com/problems/palindrome-partitioning-iv/
 bool checkPartitioning(string s) {
         
         //first of all we mark all palindromic subarrays
@@ -31,7 +31,7 @@ bool checkPartitioning(string s) {
         //dp[i][j] tells if its possible to partition sting s from 0 to j using i cuts 
         //wehn i =0  , we check if string is palifnrom or no
         //from i = 1 , we start applyihng cuts only if our suffix is a palifdormr
-        
+
         bool dp[3][2000]  ;
         for(int  i = 0; i< 3 ; i++){
             for(int j = 0 ; j < len ; j++){
