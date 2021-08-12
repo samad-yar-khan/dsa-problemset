@@ -67,3 +67,59 @@ We solve ths question like how we solve a qn where we have two unique numbers an
         return ans;
         
     }
+
+     int *findTwoElement(int *arr, int n) {
+        // code here
+        int *ans = new int[2];
+        
+        int xorAB = 0;
+        for(int i = 1 ; i <= n ; i++){
+            xorAB = xorAB ^ i; //1^2^3^4^5
+        }
+        for(int i = 0 ;i<n ; i++){
+            xorAB = xorAB^arr[i];
+        } 
+        //find firts set but in xor aab as that will be unique to only one of ab
+        int c = 0;
+        int t = xorAB;
+        // cout<<t<<" ";
+        int one=1;
+        while((t&one)!=one){
+            c++;
+            t=t>>1;
+        }
+        int setBit = 1<<c;
+    
+        //now we go trhough all 
+        //1 2 3 4 5 1 2 3 3 5 
+        //and take values where this bit is set
+        int A = 0;
+        for(int i = 1 ; i <= n ; i++){
+           if((i&setBit) > 0){
+              A = A^i;
+           }
+        }
+        
+        for(int i = 0 ; i <n ; i++){
+            if((arr[i] & setBit) > 0){
+                A=A^arr[i];
+            }
+        }
+       
+        int B=xorAB^A;
+       
+        for(int i = 0 ; i < n ; i++){
+            int c=B^arr[i];
+            if( c == 0){
+               
+                int temp = A;
+                A=B;
+                B=temp;
+                break;
+            }
+        }
+        ans[0]  = A;
+        ans[1] = B;
+        return ans;
+        
+    }
