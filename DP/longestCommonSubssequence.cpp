@@ -97,7 +97,7 @@ int longestCommonSubstrDP (string S1, string S2, int n, int m)
                     pair<int,int> ans;
                     ans.first = case1.first;
                     ans.second = max(max(case1.first , case1.second ), max(case2.second , case3.second));
-                    
+                        
                     arr[i][j] = ans;
 
                 }else{
