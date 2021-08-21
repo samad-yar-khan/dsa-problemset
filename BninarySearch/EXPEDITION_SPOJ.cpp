@@ -2,39 +2,64 @@
 #define ll long long 
 using namespace std;
 
-int minStops(pair<int , int>* stops , int L , int  P , int N){
 
-    //bc
-    if(L<=P){
-        return 0;
-    }
-    if(N<=0){
-        return INT_MAX;
-    }
-    if(P<0){
-        return INT_MAX;
+class comparePetrol {
+
+    public:
+
+    bool operator()(pair<int , int > a ,  pair<int , int> b){
+        return a.second < b.second ;
     }
 
-    //check if we can  even reach the next stop or not
-    int distanceToNearest = L-stops[0].first;
-    if(P<distanceToNearest){
-        return INT_MAX;
-    }
+};
 
-    int case1 = INT_MAX;
-    int case2 = INT_MAX;
-    
-    ///reach stop and refill next stop
-    case1=minStops(stops+1 , stops[0].first , P + stops[0].second - distanceToNearest, N-1 ) +1;
-    //dont stop and refill ar nettx tsop
-    case2 = minStops(stops+1 , stops[0].first , P -distanceToNearest, N-1 );
-
-    return min(case1 , case2);
-
+bool comp(pair<int , int> a , pair<int , int > b){
+    return a.first>b.first;
 }
 
-bool comp(pair<int , int> a , pair<int , int> b){
-    return a.first>b.first;
+int  minStops(pair<int , int>* stops  , int N , int X , int P){
+
+    sort( stops , stops+N , comp );
+
+    // for(int i = 0 ; i < N ; i++){
+    //     cout<<stops[i].first<<" "<<stops[i].second<<"\n";
+    // }
+    priority_queue<pair<int , int > , vector<pair<int , int>> , comparePetrol > pendingStops ;
+    int c = 0 ;
+    int i = 0 ;
+    int distanceLeft = X;
+    int petrolLeft = P;
+    while (distanceLeft >0)
+    {
+        if(petrolLeft >= distanceLeft){
+            distanceLeft = 0 ;
+            break;
+        }
+
+        while(i < N && distanceLeft-stops[i].first <= petrolLeft){//un stops ko push karo jaha tum ja pao
+            pendingStops.push(stops[i++]);
+        }
+        if(pendingStops.size() == 0)
+        {
+            break;
+        }
+
+        pair<int , int > chosenStop = pendingStops.top();
+        // cout<<chosenStop.first<<" "<<chosenStop.second<<"\n";
+        pendingStops.pop();
+        int disTraveled = distanceLeft-chosenStop.first;
+        petrolLeft=petrolLeft-disTraveled+chosenStop.second;
+        distanceLeft  = chosenStop.first;
+        c++;
+    
+    }
+
+    if(distanceLeft > 0){
+        return -1;
+    }
+
+    return c;    
+
 }
 
 int main(){
@@ -47,27 +72,23 @@ int main(){
 
     while(T--){
 
-        int N = 0 ;
+        int N = 0;
         cin>>N;
-        pair<int,int>*stops =  new pair<int ,int>[N];
-        for(int i = 0 ; i < N ; i++){
 
-            int distanceFromTown = 0 ;;
-            int fuel=0;
-            cin>>distanceFromTown>>fuel;
+        pair<int,int>*stops = new pair<int,int> [N];
 
-            pair<int , int> stop(distanceFromTown , fuel);
-            stops[i] = stop;
+        for(int i = 0 ; i  < N ; i++){
+            cin>>stops[i].first;
+            cin>>stops[i].second;
         }
 
+        int X = 0 ;
+        cin>>X;
+        int P = 0 ;
+        cin>>P;
 
-        int L=0;
-        int P=0;
-        cin>>L>>P;
+        cout<<minStops(stops , N , X , P)<<'\n';
 
-        sort(stops , stops+N , comp);
-        cout<<minStops(stops , L , P , N);
-        
         delete [] stops;
     }
     return 0;
