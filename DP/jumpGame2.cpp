@@ -44,3 +44,33 @@ int jump(vector<int>& nums) {
 }
 //o1 space and on time
 //https://leetcode.com/problems/jump-game-ii/discuss/18014/Concise-O(n)-one-loop-JAVA-solution-based-on-Greedy
+
+//watch enrichto vid
+int jumpOptim(vector<int>& nums) {
+       
+        int n = nums.size();
+
+        if(n<=1){
+            return 0;
+        }
+    
+    int maxIndex = 0 ;
+    int si = 0 ;
+    int ei = 0 ;
+    int jumps = 0;
+
+    while(si<=ei && si < n && ei <n){
+
+        while(si <= ei){
+            maxIndex = max(maxIndex , si+nums[si]);
+            si++;
+        }
+        ei = maxIndex;
+        jumps++;
+        if(maxIndex >= n-1){
+            return jumps;
+        }
+    }
+
+    return jumps;   
+}
