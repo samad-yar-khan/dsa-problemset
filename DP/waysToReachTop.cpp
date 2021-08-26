@@ -25,6 +25,7 @@ int solve(int n , int k,int*dp ){
     return dp[n];
 }
 
+//O(N*K)
 int solveDP(int n , int k){
 
     if(k == 0){
@@ -42,6 +43,37 @@ int solveDP(int n , int k){
     }
     int ans = dp[n];
     delete [] dp;
+    return ans;
+}
+
+
+//at any point w just need a sum od the last k answers 
+//so along with dp[i] to savetime we make a presm array
+
+//O(N + K)
+int solveDpOptim(int n , int k){
+
+    if(k == 0){
+        return 0;
+    }
+    int *dp = new int[n+1]{0};
+    int *presum = new int[n+1]{0};
+
+    dp[0] = 1;
+    presum[0] = 1;
+    //at each point we just need the sum of all ways to go from dp[x] from x rangess from i-1 to i-k
+    for(int i = 1 ; i <= n ; i++){
+        if(i > k){
+            dp[i] = presum[i-1] - presum[i-k-1];
+        }else{
+            dp[i] = presum[i-1];
+        }
+        presum[i] = presum[i-1] + dp[i];
+    }
+
+    int ans = dp[n];
+    delete [] dp;
+    delete [] presum;
     return ans;
 }
 
@@ -66,7 +98,7 @@ int main(){
 
 
         // delete [] dp;
-        cout<<solveDP(n,k)<<"\n";
+        cout<<solveDpOptim(n,k)<<"\n";
     }
     
 
