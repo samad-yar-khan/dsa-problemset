@@ -3,7 +3,32 @@
 #define ll long long int
 using namespace std;
 
-//brute force recursiive approach
+/*
+brute force recursiive approach
+the probelem was that we had n people and we   can either makes pairs of two of some or we can leave them 
+as they please
+for 3 friend
+F1 F2 F3
+therw can be 4 ways 
+1){ F1 , F2 , F3 } // no pairs
+2){ (F1,F2) , F3 }
+3){ (F1,F3) , F2 }
+4){ F1 , (F2,F3) }
+
+//so of we have n freidns , we will only work on the first freind
+
+case1 
+we can pair it with non of the freidns and see how the (n-1) pair sof freidns can be made
+case2
+here we can actally pair our friend with any ofnthe left n-1 friends and see how the how thw rest ofthe freind are pairs
+so F1 can be pairs with F2 and we add the and of pairing levfotver one friend F3
+or F1 can be paires with F3 and we calucllated how to apir rets of the feisnd F2
+
+basically we pairs our with each of the left n-1 feiends and see how the left over n-2 feinnds can bepaied with each otehr
+T(n-2) + T(n-2).. and so on
+so case2 is just (n-1)*(T(n-2))
+
+*/
 int rec(int n){
             
         if(n==1||n==0){
