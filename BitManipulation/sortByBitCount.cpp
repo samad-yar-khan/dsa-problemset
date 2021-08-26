@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// https://practice.geeksforgeeks.org/problems/sort-by-set-bit-count1153/1#
+
   static bool comparator(int a , int b){
             
         int c1 = 0 ;
