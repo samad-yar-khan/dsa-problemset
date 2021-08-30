@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+
 /*
+https://practice.geeksforgeeks.org/problems/minimum-platforms-1587115620/1#
 the logic is that we need to accodomoate all trains , so ,make a pair of arrival and departure times ,
 so we sort the trains acoordng to the arrival time , then we need to make a pq and puhs the departure time
 in a queue , so i push oone train into my quque, and that acts as my stataion , iit will return me the min time at which
