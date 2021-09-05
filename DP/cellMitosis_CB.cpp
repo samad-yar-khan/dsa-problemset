@@ -78,7 +78,7 @@ ll solve_dp(ll n , ll x , ll y , ll z ,ll* dp){
 
     
             ll c1 = dp[cells-1] + y;
-            ll c2 = dp[(cells+1)/2] + x + z ;
+            ll c2 = dp[(cells+1)/2] + x + z ;//x se ham (i+1)/2 se i+1 pe aye and then waha se peeche ane  ka cost z
             dp[cells] = min(c1 , c2);
 
         }
