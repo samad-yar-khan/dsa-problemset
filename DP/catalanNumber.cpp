@@ -7,6 +7,8 @@ using namespace std;
 #define ll long long
 #define ull unsigned  long long
 
+//used to find - num of bsts , bts , bt structurs
+
 //catlan numbers
 
 /*
