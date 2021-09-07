@@ -1,5 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
+// https://practice.geeksforgeeks.org/problems/majority-element-1587115620/1#
+
+/*
+Solution Using Bit Manipulation - We mark the number of set bits at each position and at the end we get an array which has the freq of set set bits at each position , now we consider those set positions where the number of set bits is more than n/2 and form our number , now we iterate through the array and see if our formed integer has a freq more than n./2 or not . if it does then we return the number else we return -1
+*/
 
  int majorityElement(int a[], int size)
     {
