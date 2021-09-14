@@ -1,10 +1,18 @@
 {
-
- "files.associations": {
-  "iostream": "cpp",
-  "new": "cpp",
-  "string": "cpp",
-  "numeric": "cpp"
+  "files.associations": {
+    "iostream": "cpp",
+    "new": "cpp",
+    "string": "cpp",
+    "numeric": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "unordered_map": "cpp",
+    "unordered_set": "cpp",
+    "vector": "cpp",
+    "string_view": "cpp",
+    "initializer_list": "cpp",
+    "regex": "cpp"
+  }
 }
-}
-
