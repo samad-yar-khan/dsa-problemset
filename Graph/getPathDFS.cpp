@@ -36,7 +36,7 @@ bool DFS_path(int**edges , int V , int v1 , int v2 , bool* visited){
 void get_path(int**edges , int V , int v1  , int v2){
 
     bool*visited = new  bool[V]{false};
-
+    DFS_path(edges , V , v1 , v2 , visited);
     delete [] visited;
 }
 
