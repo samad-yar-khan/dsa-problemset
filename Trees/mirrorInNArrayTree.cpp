@@ -39,67 +39,7 @@ using namespace std;
     }
 
     return 1;
-
-
-    //    map<int, vector<int>> graph1;
-    //    map<int, vector<int>> graph2;
-       
-    //    for(int i =0; i < 2*e ; i+=2){
-           
-    //        graph1[A[i]].push_back(A[i+1]);
-    //        graph2[B[i]].push_back(B[i+1]);
-         
-    //    }
-       
-    //    //reverse graph2 
-    //    queue<int> pendingNodes;
-    //    pendingNodes.push(graph2.begin()->first);
-       
-    //    while(pendingNodes.size() > 0){
-    //        int topNodes = pendingNodes.front();
-    //        pendingNodes.pop();
-           
-    //        //reverse all children and pop them in the the quue
-    //        for(int i = 0 ;i<graph2[topNodes].size() ; i++){
-    //            pendingNodes.push(graph2[topNodes].at(i));
-    //        }
-    //         reverse(graph2[topNodes].begin() ,graph2[topNodes].end());
-           
-    //    }
-       
-       
-    //     auto itr1 = graph1.begin();
-    //     auto itr2 = graph2.begin();
-        
-    //     while(itr1 != graph1.end() && itr2 != graph2.end() ){
-            
-    //         if(itr1->first != itr2->first){
-    //             return 0;
-    //         }
-    //         if(itr1->second.size() != itr2->second.size()){
-    //             return 0;
-    //         }
-            
-    //         for(int i = 0 ; i<itr1->second.size()  ; i++){
-    //             if(itr1->second.at(i) != itr2->second.at(i)){
-    //                 return 0;
-    //             }
-    //         }
-            
-    //         itr1++;
-    //         itr2++;
-    //     }
-        
-    
-    //     return 1;
-       
-
-
-
-
-
-        
-    }
+}
 
 int main(){
 
