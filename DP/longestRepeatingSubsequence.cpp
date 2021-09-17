@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence/0
   int lcs(string &s1 , string &s2  , int i , int j,int dp[1001][1001] ){
 	        
 	        if(i >= s1.length() || j >= s2.length()){

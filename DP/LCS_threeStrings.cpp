@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace  std;
-
+//https://practice.geeksforgeeks.org/problems/lcs-of-three-strings/0
 
 int lcs(string& a , string& b, string& c,int i , int j , int k,int dp[21][21][21] ){
         
