@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+//https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1#
 
 // method 1 using a max herap
 //complexity - O(Nlog(K))
@@ -23,7 +23,7 @@ int kthSmallest(int arr[], int l, int r, int k) {
 }
 
 //method 2 using quiickslect
-
+//O(N) time and O(1) spoce
 int partition(int arr[], int l, int r){
 
     int e_ind = rand()%(r-l+1);
