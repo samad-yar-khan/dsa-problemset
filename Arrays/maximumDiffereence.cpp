@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//https://www.geeksforgeeks.org/maximum-difference-between-two-elements/
 void printArr(int *arr , int  n){
     cout<<"----ARRAY-----\n";
      cout<<"\n[ ";
