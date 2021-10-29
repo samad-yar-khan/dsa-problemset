@@ -3,30 +3,22 @@ using namespace std;
 #define ll long long int
 //if we have to checka prime number is more than 10^7 and less than 10^14
 //now we need tio 
-bool isPrime(ll n , int *arr ){
-    cout<<n<<"\n";
-    if(n<=1){
-        return false;
-    }
-    if(n==2){
-        return true;
-    }
+bool isPrime(ll n , int *arr , vector<int>&primes){
     
-    if(n < 1000001){
+    if( n <= 100000){
         return arr[n];
     }
 
-    for(int i = 2 ; i*i < n ; i++){
-        if(n%i == 0){
+    for(int i = 0 ; primes[i]*(long long int)primes[i] < n ;i++){
+        if(n%primes[i] == 0){
             return false;
         }
     }
-
     return true;
 
 }
 
-void prime_seive(int *arr ){
+void prime_seive(int * arr, vector<int>&primes ){
 
     //0 means non preime and 1 means prime
     //set all to prime except  even nos and on3
@@ -41,13 +33,17 @@ void prime_seive(int *arr ){
         }
     }
 
+   
+    primes.push_back(2);
     //now we mark mulriples 
     //bit onlu marks mulriple  of peimes and starting from theri squares
     //2 ke multiples even hia , wo already marks hogye
+    
     for(int i = 3 ; i<= 100000 ; i++){
         if(arr[i] == 0){
             continue;
         }
+        primes.push_back(i);
         for(int j = i*i ; j <= 100000 ; j+=i){
             arr[j] = 0;
         }
@@ -73,9 +69,10 @@ int main(){
     cin>>n;
 
     int arr[100000];
-    // prime_seive(arr);
    
-    cout<<isPrime(n,arr)<<"\n";
+   vector<int> primes;
+    prime_seive(arr,primes);
+    cout<<isPrime(n,arr,primes)<<"\n";
 
    
     return 0;
