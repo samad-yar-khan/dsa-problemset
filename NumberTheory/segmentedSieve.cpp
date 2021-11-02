@@ -1,19 +1,19 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
-
+//https://www.spoj.com/problems/PRIME1/
 //making the prime seive
-void seive(int arr[] , int range , vector<int>& primes ){
+void makeSeive(vector<bool>&seive , int range , vector<int>& primes ){
 
-    arr[0] = 0 ;//np
-    arr[1] = 0 ;//np
-    arr[2] = 1 ;//pr
+    seive[0] = 0 ;//np
+    seive[1] = 0 ;//np
+    seive[2] = 1 ;//pr
 
-    for(int i=2 ; i <= range ; i++){
-        if(arr[i] == 1){
+    for(long long i=2 ; i <= range ; i++){
+        if(seive[i]){
             primes.push_back(i);
-            for(int j = 2*i ; j <= range ; j+=i){
-                arr[j]=0;
+            for(long long j = i*i ; j <= range ; j+=i){
+                seive.at(j)=false;
             }
         }
     }
@@ -21,7 +21,39 @@ void seive(int arr[] , int range , vector<int>& primes ){
 
 void getPrimesInRange(ll n , ll m , vector<int>& primes){
 
-    
+    vector<bool> vec(m-n+1 , true);
+
+    for(long long i = 0 ; i < primes.size() ; i++){
+       
+        if(primes[i]*primes[i] > m ){
+            break;
+        }
+
+        long long start = (n/primes[i])*primes[i];
+
+        if( n<=primes[i] && primes[i]<=m ){
+            start = 2*primes[i];
+        }
+
+        for(long long j  = start ; j <= m ; j+=primes[i] ){
+           if(j-n<0){
+               continue;
+           }
+            vec.at(j-n) = false;
+
+        }
+
+        if(n == 1){
+            vec[0] = false;
+        }
+
+    }
+    for(int i =0;i<vec.size() ; i++){
+        if(vec[i]){
+            cout<<i+n<<"\n";
+        }
+    }
+    cout<<"\n";
 
 }
 
@@ -34,20 +66,23 @@ int main(){
         freopen("../output.txt", "w", stdout);
     #endif
 
-    int T =0;
-    cin>>T;
-    
-    int primeSieve[100001] = {1};
+    vector<bool >seive(100001, true);    
     vector<int> primes;
+    makeSeive(seive , 100000, primes);
 
-    seive(primeSieve , 100000 , primes);
+    // for(int i =0 ;i < primes.size() ; i++){
+    //     cout<<primes[i]<<"\n";
+    // }
+    int T = 0;cin>>T;
 
     while(T--){
-        
-        ll n=0,m=0;
-        cin>>n>>m;  
-        getPrimesInRange(n , m ,  primes);
+
+        ll n = 0 , m = 0;
+        cin>>n>>m;
+
+        getPrimesInRange(n,m,primes);
 
     }
+  
 
 }
