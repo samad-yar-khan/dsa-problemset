@@ -37,6 +37,8 @@ void makeSeive(vector<bool>& seive, vector<int>& primes){
  
 }
 
+//comlexity of building sieve = nloglogn;
+//complexity of calculationg factors of each eleemnet n is log(n)
 int main(){
 
     ios_base::sync_with_stdio(false);
