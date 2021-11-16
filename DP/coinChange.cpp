@@ -118,12 +118,8 @@ int countWaysToMakeChange(int d[], int n, int v){
     
 }
 
-
-
-
-
-
 //dp o(n) space  and O(mn) time
+
 //refer sumeet malik vid
 long long int coinChangeDP( int S[], int m, int n){
 
