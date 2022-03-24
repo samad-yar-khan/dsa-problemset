@@ -62,3 +62,37 @@ using namespace std;
         
         
     }
+
+    // the above aproach is time - O(n2) and space O(n2), we can improve upon the space 
+    //https://www.geeksforgeeks.org/longest-palindromic-substring-set-2/
+    //the beleo method is o1 space and On2 time
+     string longestPalindrome_constantSpace(string S){
+        // code here 
+        int ans =1;
+        int n = S.length();
+        int si_a =0;
+        for(int i =0;i<n ;i++){
+                
+            int si=i-1;
+            int ei=i+1;
+            while(si>=0 && S[si] == S[i] ){
+                si--;
+            }
+            while(ei<n && S[ei] == S[i] ){
+                ei++;
+            }
+            
+            while(si>=0 && ei<n && S[si]==S[ei]){
+                si--;ei++;
+            }
+            
+            
+            if(ei-si-1>ans){
+                ans = ei-si-1;
+                si_a = si+1;
+            }
+            
+        }
+        
+        return S.substr(si_a,ans);
+    }
