@@ -28,6 +28,8 @@ string solve(string s, int k) {
                 }
             }else{
                 st.push({s[i],1});
+
+                
             }
 
         }
