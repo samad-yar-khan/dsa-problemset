@@ -7,8 +7,6 @@ using namespace std;
     int Y[8] = {0,1,1,1,0,-1,-1,-1};
    
      bool pathExist (vector<vector<int>>&mat,vector<vector<bool>>&down,int i, int j, int n){
-         
-         
         if(i<0 || j <0 || j>=n || i>=n){
             return false; 
         }
@@ -40,7 +38,7 @@ using namespace std;
             }
         }
         return -1;
-        
+       
     }
    
 
