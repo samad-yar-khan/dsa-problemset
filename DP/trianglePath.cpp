@@ -4,6 +4,7 @@ using namespace std;
 //the logic casn be a dp logic dp[r][j] will be min(dp[r+1][j],dp[r+1][j+1]) + t[r][j] 
 //so to solve the problem we only neeed two array of size n
 //hence space of on
+//https://leetcode.com/problems/triangle/submissions/
 
 int minimumTotal(vector<vector<int>>& triangle) {
        
