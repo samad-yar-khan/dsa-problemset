@@ -22,10 +22,7 @@ using namespace std;
 //we memlize for dp[200][200]
 
     
-    double solve(int a, int b,vector<vector<double>>&dp){
-        
-        
-        
+    double solve(int a, int b,vector<vector<double>>&dp){   
         if(a<=0 ){
             return b<=0 ? 0.5 : 1;//c2 AND C1
         }
@@ -51,9 +48,6 @@ using namespace std;
             
         }
         vector<vector<double>>dp(200,vector<double>(200,-1));
-        
-        
+    
         return solve(N,N,dp);
-        
-        
     }
