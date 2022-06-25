@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 class TrieNode{
 
     public :
@@ -15,7 +16,7 @@ class TrieNode{
             terminal = false;
             count=0;
         }
-
+        
 };
 
 
