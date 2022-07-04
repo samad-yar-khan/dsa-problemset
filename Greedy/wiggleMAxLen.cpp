@@ -12,6 +12,7 @@ using namespace std;
         if(nums.size() == 1){
             return 1;
         }
+        
         int ans =2;
         int d1 = nums[1]-nums[0];
         int i =1;
