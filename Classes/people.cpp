@@ -59,5 +59,6 @@ int main(){
     const people p3(name ,age,2);
     p3.getDetails();
     cout<<people::numPeople<<"\n";
+    cout<<people::getPeople()<<"\n";
     return 0;
 }
