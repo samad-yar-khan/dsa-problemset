@@ -64,8 +64,6 @@ using namespace std;
                 si=maxPaintTime+1; //we need more thime
             }
             
-            
-            
         }
         
         return ans;
