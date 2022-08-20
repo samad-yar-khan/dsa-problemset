@@ -12,10 +12,12 @@ char* myStrtok(char* str , char delim){
     if(str!= NULL){
         input = str;
     }
+
     //base case 
     if(input==NULL){
         return NULL;
     }
+    
     char* output = new char[strlen(input) +1];
     int i = 0 ; // help us iterate 
     for( ; input[i] != '\0' ; i++){
@@ -32,6 +34,7 @@ char* myStrtok(char* str , char delim){
            return output;
         }
     }
+
     //corner case 
     //we are in the last token
     //in this case output array will have the right charaters , but wont have null char at the end
@@ -41,6 +44,8 @@ char* myStrtok(char* str , char delim){
     return output;
 
 }
+//
+
 int main(){
 //      char s[100]  = "Hey what up !";
 //     char delim =  ' ';
