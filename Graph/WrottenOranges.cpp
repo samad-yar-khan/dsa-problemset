@@ -52,5 +52,4 @@ using namespace std;
             }
         }
         return riped==0?ans:-1;
-        
     }
